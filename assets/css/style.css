@@ -142,25 +142,34 @@ nav.scrolled {
 .hamburger {
   display: none;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
   background: none;
   border: none;
   cursor: pointer;
-  padding: 0.5rem;
+  padding: 0.75rem;
   z-index: 1001;
   position: relative;
+  width: 44px;
+  height: 44px;
 }
 
 .hamburger-line {
-  width: 25px;
-  height: 2px;
+  width: 24px;
+  height: 3px;
   background-color: var(--color-charcoal);
-  margin: 3px 0;
   transition: var(--transition-smooth);
   border-radius: 2px;
+  display: block;
+}
+
+.hamburger.active {
+  gap: 0;
 }
 
 .hamburger.active .hamburger-line:nth-child(1) {
-  transform: rotate(45deg) translate(7px, 7px);
+  transform: rotate(45deg) translate(0px, 3px);
 }
 
 .hamburger.active .hamburger-line:nth-child(2) {
@@ -168,7 +177,7 @@ nav.scrolled {
 }
 
 .hamburger.active .hamburger-line:nth-child(3) {
-  transform: rotate(-45deg) translate(7px, -7px);
+  transform: rotate(-45deg) translate(0px, -3px);
 }
 
 /* ===== Hero Section ===== */
