@@ -164,12 +164,8 @@ nav.scrolled {
   display: block;
 }
 
-.hamburger.active {
-  gap: 0;
-}
-
 .hamburger.active .hamburger-line:nth-child(1) {
-  transform: rotate(45deg) translate(0px, 3px);
+  transform: translateY(8px) rotate(45deg);
 }
 
 .hamburger.active .hamburger-line:nth-child(2) {
@@ -177,7 +173,7 @@ nav.scrolled {
 }
 
 .hamburger.active .hamburger-line:nth-child(3) {
-  transform: rotate(-45deg) translate(0px, -3px);
+  transform: translateY(-8px) rotate(-45deg);
 }
 
 /* ===== Hero Section ===== */
