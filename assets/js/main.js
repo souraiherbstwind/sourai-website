@@ -22,3 +22,27 @@ const observer = new IntersectionObserver((entries) => {
 });
 
 fadeElements.forEach(el => observer.observe(el));
+
+// Hamburger menu toggle
+const hamburger = document.getElementById('hamburger');
+const navLinks = document.getElementById('nav-links');
+
+hamburger.addEventListener('click', () => {
+  hamburger.classList.toggle('active');
+  navLinks.classList.toggle('active');
+
+  // Update aria-expanded for accessibility
+  const isExpanded = hamburger.classList.contains('active');
+  hamburger.setAttribute('aria-expanded', isExpanded);
+  hamburger.setAttribute('aria-label', isExpanded ? 'メニューを閉じる' : 'メニューを開く');
+});
+
+// Close menu when clicking on a link
+navLinks.querySelectorAll('a').forEach(link => {
+  link.addEventListener('click', () => {
+    hamburger.classList.remove('active');
+    navLinks.classList.remove('active');
+    hamburger.setAttribute('aria-expanded', 'false');
+    hamburger.setAttribute('aria-label', 'メニューを開く');
+  });
+});
