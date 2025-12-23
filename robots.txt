@@ -1,0 +1,15 @@
+# robots.txt for sourai.github.io
+
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://sourai.github.io/sitemap.xml
+
+# Disallow assets directory from search engines (optional)
+User-agent: *
+Disallow: /assets/
+
+# Allow specific file types
+User-agent: *
+Allow: /assets/images/
