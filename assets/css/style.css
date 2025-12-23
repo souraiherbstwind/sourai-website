@@ -950,9 +950,22 @@ footer {
     font-size: 2rem;
   }
 
+  /* Navigation - Mobile */
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
   /* Hamburger Menu - Mobile */
   .hamburger {
-    display: flex;
+    display: flex !important;
+    background-color: rgba(232, 160, 76, 0.1);
+    order: 2;
+  }
+
+  .nav-logo {
+    order: 1;
   }
 
   .nav-links {
