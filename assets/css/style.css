@@ -216,12 +216,13 @@ nav.scrolled {
 }
 
 .hero-avatar img {
-  width: 400px;
+  width: 350px;
+  height: 350px;
   max-width: 90vw;
-  height: auto;
+  border-radius: 50%;
   filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.15));
   animation: gentle-float 6s ease-in-out infinite;
-  object-fit: contain;
+  object-fit: cover;
 }
 
 @keyframes gentle-float {
