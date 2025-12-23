@@ -956,7 +956,6 @@ footer {
   /* Hamburger Menu - Mobile */
   .hamburger {
     display: flex !important;
-    background-color: rgba(232, 160, 76, 0.1);
     order: 2;
   }
 
