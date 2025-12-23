@@ -500,7 +500,7 @@ section {
 
 .work-thumbnail {
   width: 100%;
-  height: 180px;
+  aspect-ratio: 16/9;
   background: var(--color-dusty-blue-light);
   display: flex;
   align-items: center;
@@ -514,6 +514,15 @@ section {
   font-size: 3rem;
   color: var(--color-white);
   opacity: 0.5;
+}
+
+.work-thumbnail iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 
 .work-thumbnail img {
