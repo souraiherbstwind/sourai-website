@@ -1,38 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://souraiherbstwind.github.io/sourai-website/</loc>
-    <lastmod>2024-12-23</lastmod>
+    <loc>https://sourai.net/</loc>
+    <lastmod>2024-12-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://souraiherbstwind.github.io/sourai-website/#about</loc>
-    <lastmod>2024-12-23</lastmod>
+    <loc>https://sourai.net/#about</loc>
+    <lastmod>2024-12-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://souraiherbstwind.github.io/sourai-website/#works</loc>
-    <lastmod>2024-12-23</lastmod>
+    <loc>https://sourai.net/#works</loc>
+    <lastmod>2024-12-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://souraiherbstwind.github.io/sourai-website/#recording</loc>
-    <lastmod>2024-12-23</lastmod>
+    <loc>https://sourai.net/#recording</loc>
+    <lastmod>2024-12-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://souraiherbstwind.github.io/sourai-website/#links</loc>
-    <lastmod>2024-12-23</lastmod>
+    <loc>https://sourai.net/#links</loc>
+    <lastmod>2024-12-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://souraiherbstwind.github.io/sourai-website/#contact</loc>
-    <lastmod>2024-12-23</lastmod>
+    <loc>https://sourai.net/#contact</loc>
+    <lastmod>2024-12-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>

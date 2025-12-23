@@ -4,12 +4,8 @@ User-agent: *
 Allow: /
 
 # Sitemap
-Sitemap: https://souraiherbstwind.github.io/sourai-website/sitemap.xml
+Sitemap: https://sourai.net/sitemap.xml
 
-# Disallow assets directory from search engines (optional)
+# Allow all assets (including images for social media previews)
 User-agent: *
-Disallow: /assets/
-
-# Allow specific file types
-User-agent: *
-Allow: /assets/images/
+Allow: /assets/
