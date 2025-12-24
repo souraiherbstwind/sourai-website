@@ -46,3 +46,49 @@ navLinks.querySelectorAll('a').forEach(link => {
     hamburger.setAttribute('aria-label', 'メニューを開く');
   });
 });
+
+// Voice sample audio player
+let currentAudio = null;
+let currentButton = null;
+
+document.querySelectorAll('.voice-tag[data-audio]').forEach(button => {
+  button.addEventListener('click', function() {
+    const audioSrc = this.getAttribute('data-audio');
+
+    // If clicking the same button that's playing, stop it
+    if (currentButton === this && currentAudio && !currentAudio.paused) {
+      currentAudio.pause();
+      currentAudio.currentTime = 0;
+      this.classList.remove('playing');
+      currentAudio = null;
+      currentButton = null;
+      return;
+    }
+
+    // Stop any currently playing audio
+    if (currentAudio) {
+      currentAudio.pause();
+      currentAudio.currentTime = 0;
+      if (currentButton) {
+        currentButton.classList.remove('playing');
+      }
+    }
+
+    // Create and play new audio
+    currentAudio = new Audio(audioSrc);
+    currentButton = this;
+    this.classList.add('playing');
+
+    currentAudio.play().catch(error => {
+      console.error('Audio playback failed:', error);
+      this.classList.remove('playing');
+    });
+
+    // Remove playing class when audio ends
+    currentAudio.addEventListener('ended', () => {
+      this.classList.remove('playing');
+      currentAudio = null;
+      currentButton = null;
+    });
+  });
+});
