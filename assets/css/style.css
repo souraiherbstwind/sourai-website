@@ -76,6 +76,14 @@
     transition:background .4s,border-color .4s;
     border-bottom:1px solid transparent;
   }
+  /* 最上部(未スクロール時)の可読性確保:星空の明部にメニューが溶けないよう
+     薄い黒のグラデーション帯を敷く。スクロール後は .scrolled の黒背景に引き継ぐ */
+  .nav::before{
+    content:"";position:absolute;inset:0 0 -2.4rem;z-index:-1;pointer-events:none;
+    background:linear-gradient(180deg,rgba(4,6,15,.6) 0%,rgba(4,6,15,.3) 55%,transparent 100%);
+    transition:opacity .4s;
+  }
+  .nav.scrolled::before{opacity:0}
   .nav.scrolled{
     background:rgba(4,6,15,.8);
     backdrop-filter:blur(10px);
@@ -89,8 +97,8 @@
   .status{
     display:inline-flex;align-items:center;gap:.65em;
     font-size:.72rem;letter-spacing:.18em;color:var(--ink);white-space:nowrap;
-    border:1px solid var(--gold-dim);
-    background:rgba(201,179,126,.07);
+    border:1px solid rgba(201,179,126,.65);
+    background:rgba(4,6,15,.35);
     padding:.4em 1.2em;
   }
   .status .dot{
@@ -156,6 +164,14 @@
   .hero-text{
     align-self:center;
     padding-bottom:10vh;
+    position:relative;
+  }
+  /* 星雲の明部と重なっても金文字が沈まないよう、テキスト背後だけ環境光をわずかに遮る。
+     h1はbackground-clip:textのためtext-shadowは使えない(文字自体が影色に見える) */
+  .hero-text::before{
+    content:"";position:absolute;inset:-12% -18%;z-index:-1;pointer-events:none;
+    background:radial-gradient(ellipse 62% 55% at 45% 42%,rgba(4,6,15,.42),transparent 74%);
+    filter:blur(18px);
   }
   .hero .flourish{
     font-family:var(--flourish);font-style:italic;
@@ -202,8 +218,8 @@
     width:auto;
     max-width:min(46vw,520px);
     object-fit:contain;object-position:bottom;
-    -webkit-mask-image:linear-gradient(180deg,#000 82%,transparent 100%);
-    mask-image:linear-gradient(180deg,#000 82%,transparent 100%);
+    -webkit-mask-image:linear-gradient(180deg,#000 72%,rgba(0,0,0,.75) 84%,rgba(0,0,0,.35) 93%,transparent 100%);
+    mask-image:linear-gradient(180deg,#000 72%,rgba(0,0,0,.75) 84%,rgba(0,0,0,.35) 93%,transparent 100%);
     animation:heroIn 1.4s cubic-bezier(.2,.7,.3,1) .15s both;
   }
   /* 輪郭に沿ったやわらかい発光。
