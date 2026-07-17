@@ -28,7 +28,7 @@
     content:"";position:fixed;inset:-24px;z-index:-2;
     filter:blur(1px);
     background-image:
-      linear-gradient(180deg, rgba(4,6,15,.25) 0%, rgba(4,6,15,.55) 55%, rgba(4,6,15,.82) 100%),
+      linear-gradient(180deg, rgba(4,6,15,.25) 0%, rgba(4,6,15,.62) 55%, rgba(4,6,15,.85) 100%),
       radial-gradient(ellipse 90% 60% at 50% 110%, rgba(4,6,15,.6), transparent 60%),
       url("../images/bg-stars.jpg");
     background-size:cover;
@@ -420,6 +420,13 @@
   .latest .ratio iframe{
     position:absolute;inset:0;width:100%;height:100%;border:0;
   }
+  .latest-more{text-align:center;margin-top:1.2rem}
+  .latest-more a{
+    font-size:.84rem;letter-spacing:.18em;
+    color:var(--gold);
+    border-bottom:1px solid var(--gold-dim);padding-bottom:.2em;
+  }
+  .latest-more a:hover{color:var(--ink);border-color:var(--ink)}
   .pickup-head{text-align:center;margin-bottom:1.8rem}
   .pickup-head .en{
     font-family:var(--latin);font-size:.68rem;letter-spacing:.45em;text-indent:.45em;color:var(--gold);
@@ -473,8 +480,9 @@
   .timeline svg{
     position:absolute;inset:0;width:100%;height:100%;
     pointer-events:none;overflow:visible;
+    filter:drop-shadow(0 0 3px rgba(201,179,126,.35));
   }
-  .timeline svg line{stroke:var(--gold-dim);stroke-width:1}
+  .timeline svg line{stroke:rgba(201,179,126,.55);stroke-width:1.4}
   .entry{
     position:relative;
     padding:0 0 2.6rem 2rem;
@@ -497,7 +505,9 @@
   .entry .year{font-family:var(--latin);font-size:.72rem;letter-spacing:.32em;color:var(--gold)}
   .entry .title{font-size:1rem;letter-spacing:.1em;margin-top:.1em;line-height:1.8}
   .entry .title small{font-size:.74rem;color:var(--faint);margin-left:.7em;letter-spacing:.08em}
-  .entry .roles{font-size:.8rem;color:var(--faint);letter-spacing:.12em;margin-top:.3em}
+  .entry .roles{font-size:.84rem;color:var(--sub);letter-spacing:.12em;margin-top:.3em}
+  .entry .title a{border-bottom:1px solid var(--gold-faint);padding-bottom:.08em}
+  .entry .title a:hover{color:var(--gold);border-color:var(--gold-dim)}
 
   /* ---------- recording ---------- */
   .rec-grid{
@@ -505,13 +515,17 @@
   }
   @media(max-width:700px){.rec-grid{grid-template-columns:1fr}}
   .rec-grid .prose{max-width:30em}
-  .spec-list{font-size:.86rem}
+  .spec-list{
+    font-size:.86rem;
+    background:rgba(4,6,15,.35);
+    padding:.2em 1.1em .35em;
+  }
   .spec-list div{
     display:flex;justify-content:space-between;gap:1rem;
     padding:.75em .1em;border-bottom:1px solid var(--gold-faint);
   }
-  .spec-list div:first-child{border-top:1px solid var(--gold-faint)}
-  .spec-list dt{color:var(--faint);font-family:var(--latin);font-size:.66rem;letter-spacing:.24em;padding-top:.4em}
+  .spec-list div:last-child{border-bottom:0}
+  .spec-list dt{color:var(--sub);font-family:var(--latin);font-size:.66rem;letter-spacing:.24em;padding-top:.4em}
   .spec-list dd{letter-spacing:.08em}
 
   /* ---------- commission ---------- */
