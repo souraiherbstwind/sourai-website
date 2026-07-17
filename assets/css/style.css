@@ -517,14 +517,20 @@
   .rec-grid .prose{max-width:30em}
   .spec-list{
     font-size:.86rem;
-    background:rgba(4,6,15,.35);
-    padding:.2em 1.1em .35em;
+    position:relative;
+  }
+  /* 表の背後だけ暗くする。四角い下地は背景写真の上で浮くため、
+     縁のないぼかした楕円で星空に溶け込ませる(hero-textと同じ手法) */
+  .spec-list::before{
+    content:"";position:absolute;inset:-3rem -3.5rem;z-index:-1;pointer-events:none;
+    background:radial-gradient(ellipse 58% 52% at 50% 50%,rgba(4,6,15,.55),transparent 76%);
+    filter:blur(16px);
   }
   .spec-list div{
     display:flex;justify-content:space-between;gap:1rem;
     padding:.75em .1em;border-bottom:1px solid var(--gold-faint);
   }
-  .spec-list div:last-child{border-bottom:0}
+  .spec-list div:first-child{border-top:1px solid var(--gold-faint)}
   .spec-list dt{color:var(--sub);font-family:var(--latin);font-size:.66rem;letter-spacing:.24em;padding-top:.4em}
   .spec-list dd{letter-spacing:.08em}
 
