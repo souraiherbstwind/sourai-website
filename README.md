@@ -14,7 +14,6 @@ assets/
 ## ローカルでの確認
 file:// で直接開くと動画・YouTube埋め込みが動かないので、必ずローカルサーバー経由で:
 ```bash
-cd sourai_site
 python3 -m http.server 8000
 # → http://localhost:8000
 ```
@@ -35,5 +34,6 @@ python3 -m http.server 8000
 - ステータス色  … style.css の .status まわり
 
 ## デプロイ
-フォルダ構成を保ったまま、サーバーの公開ディレクトリにアップロードするだけです。
-既存サイトの assets パスと重複しないよう、一度まっさらにしてから上げるのが安全です。
+GitHub Pages で公開しています。`main` ブランチにマージ/pushすると自動で反映されます。
+`CNAME`(独自ドメイン設定)・`robots.txt`・`sitemap.xml`・favicon類はサイト本体とは別の資産なので削除しないこと。
+詳細は `CLAUDE.md` を参照。
