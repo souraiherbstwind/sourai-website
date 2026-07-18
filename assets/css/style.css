@@ -21,7 +21,10 @@
     background-color:var(--night);
     line-height:2.1;
     letter-spacing:.05em;
+    /* clipはスクロールコンテナを作らないため.ios-top-coverのstickyが効く。
+       非対応ブラウザはhiddenにフォールバック(横スクロール抑止は両方で維持) */
     overflow-x:hidden;
+    overflow-x:clip;
   }
   /* 星空写真(固定背景)+ 可読性のための暗いオーバーレイ */
   body::before{
@@ -95,21 +98,24 @@
       top:-100px;
       padding-top:calc(100px + 1.1rem + env(safe-area-inset-top,0px));
     }
-    /* 画面外〜ステータスバー裏の延長部分(上100px+α)はほぼ不透明にして
-       明るいコンテンツの透けを塞ぎ、バー本体は従来の80%の質感を保つ */
-    .nav.scrolled{
-      background:linear-gradient(180deg,
-        rgba(4,6,15,.97) 0,
-        rgba(4,6,15,.97) 100px,
-        rgba(4,6,15,.8) 155px);
-    }
     /* メニューは下端だけマスクでぼわっと消し、Safari下部バー裏の生ページと
-       境目なくつなぐ(アバター裾のフェードと同じ手法)。文字域の濃度は変えない */
+       境目なくつなぐ。バーの伸縮でビューポート高が変わってもズレないよう、
+       %ではなく下端からの固定pxで指定(下120pxは画面外/バー裏) */
     .mobile-menu{
       inset:-120px 0;
-      -webkit-mask-image:linear-gradient(180deg,#000 0%,#000 78%,transparent 86%);
-      mask-image:linear-gradient(180deg,#000 0%,#000 78%,transparent 86%);
+      -webkit-mask-image:linear-gradient(0deg,transparent 0,transparent 128px,#000 240px);
+      mask-image:linear-gradient(0deg,transparent 0,transparent 128px,#000 240px);
     }
+  }
+  /* iOS Safariはステータスバー裏に「スクロールする本文レイヤー」しか描画しない
+     (fixed要素は不可)。stickyは本文レイヤー側に属するため、ビューポート上端に
+     貼り付く黒帯としてバー裏の透けを塞げる。他環境では画面外で不可視 */
+  .ios-top-cover{
+    position:sticky;top:0;height:0;z-index:11;pointer-events:none;
+  }
+  .ios-top-cover::before{
+    content:"";position:absolute;left:0;right:0;bottom:0;height:150px;
+    background:var(--night);
   }
   .nav.scrolled{
     background:rgba(4,6,15,.8);

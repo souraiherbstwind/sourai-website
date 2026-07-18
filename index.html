@@ -27,7 +27,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Shippori+Mincho:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/style.css?v=20260718f">
+<link rel="stylesheet" href="assets/css/style.css?v=20260718g">
 <script>try{if(localStorage.getItem('sourai-lang')==='en'){document.documentElement.classList.add('en');document.documentElement.lang='en';}}catch(e){}</script>
 <script type="application/ld+json">
 {
@@ -48,6 +48,10 @@
 </script>
 </head>
 <body>
+
+<!-- iOS Safariのステータスバー裏対策: fixedはバー裏に描画されないため、
+     スクロールレイヤー側のsticky要素で上端から上を黒帯で塞ぐ -->
+<div class="ios-top-cover" aria-hidden="true"></div>
 
 <video id="glitter" autoplay loop muted playsinline aria-hidden="true"></video>
 <canvas id="glitter-canvas" aria-hidden="true"></canvas>
