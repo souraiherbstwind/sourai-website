@@ -150,6 +150,54 @@
     dust.style.display = 'none';
   }
 
+  /* ---- お問い合わせテンプレートのコピー ---- */
+  var copyBtn = document.getElementById('copy-tpl');
+  if(copyBtn){
+    copyBtn.addEventListener('click', function(){
+      var en = document.documentElement.classList.contains('en');
+      var text = document.getElementById(en ? 'tpl-en' : 'tpl-ja').textContent;
+      function done(){
+        copyBtn.classList.add('done');
+        setTimeout(function(){ copyBtn.classList.remove('done'); }, 2200);
+      }
+      /* クリック直後(ユーザー操作が有効なうち)に同期の旧方式を先に試す。
+         非同期のClipboard APIを先にすると、拒否されたときには操作の有効期限が
+         切れていて旧方式も失敗するため、この順序が重要 */
+      var ok = false;
+      try{
+        var ta = document.createElement('textarea');
+        ta.value = text;
+        ta.style.position = 'fixed'; ta.style.opacity = '0';
+        ta.setAttribute('readonly', '');
+        document.body.appendChild(ta);
+        ta.select();
+        ta.setSelectionRange(0, text.length);
+        ok = document.execCommand('copy');
+        document.body.removeChild(ta);
+      }catch(e){ ok = false; }
+      if(ok){
+        done();
+      }else if(navigator.clipboard && navigator.clipboard.writeText){
+        navigator.clipboard.writeText(text).then(done, function(){});
+      }
+    });
+  }
+
+  /* ---- 言語切り替え ---- */
+  function setLang(en){
+    document.documentElement.classList.toggle('en', en);
+    document.documentElement.lang = en ? 'en' : 'ja';
+    try{ localStorage.setItem('sourai-lang', en ? 'en' : 'ja'); }catch(e){}
+    /* 表示切り替えで未発火のrevealが残らないよう全部表示扱いに */
+    document.querySelectorAll('.reveal, .entry').forEach(function(el){ el.classList.add('in'); });
+    if (typeof drawConstellation === 'function') requestAnimationFrame(drawConstellation);
+  }
+  document.querySelectorAll('[data-lang-toggle]').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      setLang(!document.documentElement.classList.contains('en'));
+    });
+  });
+
   /* ---- 発光レイヤーに本体と同じ画像を流用 ---- */
   document.querySelectorAll('.hero-figure img.glow').forEach(function(g){
     var main = g.parentElement.querySelector('img:not(.glow)');

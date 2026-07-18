@@ -5,7 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>爽籟 - Sourai | 物語を歌うボーカリスト</title>
 <meta name="description" content="物語を歌うボーカリスト・爽籟(Sourai)の公式サイト。Sound Horizonカバーを中心に、歌唱・コーラス・ナレーション・キャラクターボイスのご依頼を受け付けています。">
-<!-- ▼ OGP: assets/images/ogp.jpg (1200x630) を用意したら有効になります ▼ -->
+<link rel="canonical" href="https://sourai.net/">
+<!-- ▼ OGP: assets/images/ogp.jpg (1200x630) を用意すると有効になります ▼ -->
 <meta property="og:title" content="爽籟 - Sourai | 物語を歌うボーカリスト">
 <meta property="og:description" content="Sound Horizonカバーを中心に活動する、物語を歌うボーカリスト。歌唱・コーラス・声のお仕事のご依頼を受付中。">
 <meta property="og:type" content="website">
@@ -16,6 +17,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Shippori+Mincho:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/style.css">
+<script>try{if(localStorage.getItem('sourai-lang')==='en'){document.documentElement.classList.add('en');document.documentElement.lang='en';}}catch(e){}</script>
 </head>
 <body>
 
@@ -32,7 +34,8 @@
     <li><a href="#commission">COMMISSION</a></li>
     <li><a href="#contact">CONTACT</a></li>
   </ul>
-  <span class="status"><span class="dot"></span>ご依頼受付中</span>
+  <button class="lang-toggle" data-lang-toggle type="button"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg><span class="lt-full"><span class="l-ja">English</span><span class="l-en">日本語</span></span><span class="lt-abbr"><span class="l-ja">EN</span><span class="l-en">JA</span></span></button>
+  <span class="status"><span class="dot"></span><span class="l-ja">ご依頼受付中</span><span class="l-en">Commissions&nbsp;Open</span></span>
   <button class="menu-btn" id="menu-btn" aria-label="メニュー" aria-expanded="false" aria-controls="mobile-menu">
     <span></span><span></span><span></span>
   </button>
@@ -55,8 +58,8 @@
     <div class="hero-text">
       <p class="flourish">Vocalist &amp; Voice Actor</p>
       <h1 class="gold-text">SOURAI</h1>
-      <p class="copy">物語を歌うボーカリスト</p>
-      <a class="listen" href="https://youtube.com/@sourai29614" target="_blank" rel="noopener">YouTubeで聴く&nbsp;↗</a>
+      <p class="copy"><span class="l-ja">物語を歌うボーカリスト</span><span class="l-en">A vocalist who sings stories</span></p>
+      <a class="listen" href="https://youtube.com/@sourai29614" target="_blank" rel="noopener"><span class="l-ja">YouTubeで聴く</span><span class="l-en">Listen on YouTube</span>&nbsp;↗</a>
     </div>
     <figure class="hero-figure">
       <img class="glow glow-outer" alt="" aria-hidden="true">
@@ -73,12 +76,14 @@
       <div class="chapter reveal">
         <p class="num">CHAPTER I</p>
         <div class="rule"><span>❖</span></div>
-        <h2>爽籟について</h2>
+        <h2><span class="l-ja">爽籟について</span><span class="l-en">About</span></h2>
         <span class="en">About</span>
       </div>
       <div class="prose centered reveal">
-        <p>物語音楽が好きで、Sound Horizonなどのカバーを中心に活動しています。物語音楽サークル <a href="https://minimalsky.net/" target="_blank" rel="noopener">Minimal Sky</a> では、ヴォーカルと架空言語監修を担当しています。</p>
-        <p>YouTubeでのカバー投稿のほか、オリジナル楽曲への参加やコラボレーション、声のお仕事(ナレーション・キャラクターボイス・ボイスドラマ)もお受けしています。</p>
+        <p class="l-ja">物語音楽が大好きで、Sound Horizonなどのカバーを中心に活動しています。所属している物語音楽サークル <a href="https://minimalsky.net/" target="_blank" rel="noopener">Minimal Sky</a> では、ボーカル、声優、制作、架空言語監修を担当していて、オリジナル曲の制作に関わっています。</p>
+        <p class="l-ja">YouTubeでのカバー投稿のほか、オリジナル楽曲への参加やコラボレーション、声のお仕事(ナレーション・キャラクターボイス・ボイスドラマ)もお受けしています。</p>
+        <p class="l-en">I&rsquo;m a vocalist with a deep love for narrative music (story-driven concept albums), performing mainly covers of Sound Horizon and similar works. As a member of the narrative music circle <a href="https://minimalsky.net/" target="_blank" rel="noopener">Minimal Sky</a>, I contribute to original productions as a vocalist, voice actor, producer, and constructed-language supervisor.</p>
+        <p class="l-en">Alongside my cover uploads on YouTube, I&rsquo;m also available for original song collaborations and voice work, including narration, character voices, and audio dramas.</p>
       </div>
     </div>
   </section>
@@ -89,35 +94,40 @@
       <div class="chapter reveal">
         <p class="num">CHAPTER II</p>
         <div class="rule"><span>❖</span></div>
-        <h2>できること</h2>
+        <h2><span class="l-ja">活動領域</span><span class="l-en">What I Do</span></h2>
         <span class="en">Skills</span>
       </div>
       <div class="skill-grid">
         <div class="skill plate reveal">
           <span class="fleuron">✦</span>
+          <span class="en">Voice</span>
+          <h3><span class="l-ja">声</span><span class="l-en">Voice</span></h3>
+          <p class="body l-ja">透明感のある声質です。歌唱のほか、セリフ・ナレーションにも対応します。</p>
+          <p class="body l-en">A clear, transparent vocal tone. I perform both sung and spoken material, including dialogue and narration.</p>
+          <p class="meta l-ja">大人の女性・少女・少年・子供・おばあちゃん・ナレーション</p>
+          <p class="meta l-en">adult woman / young girl / boy / child / elderly woman / narration</p>
+        </div>
+        <div class="skill plate reveal">
+          <span class="fleuron">✦</span>
           <span class="en">Chorus Work</span>
-          <h3>コーラスワーク</h3>
-          <p class="body">ロックから声楽、ポップス、ミュージカル調まで。主旋律に寄り添うハーモニーを、一人で何声でも重ねられます。ハモリチャレンジ音源の制作も可能です。</p>
+          <h3><span class="l-ja">コーラスワーク</span><span class="l-en">Chorus Work</span></h3>
+          <p class="body l-ja">ロックから声楽、ポップス、ミュージカル調まで歌い方を調整することで、主旋律に寄り添うハーモニーを重ねられます。YouTubeではハモリチャレンジの投稿をしています。</p>
+          <p class="body l-en">From rock to classical, pop, and musical-theater styles, I adapt my vocal approach to layer harmonies that complement the lead melody. I regularly post harmony challenge videos on YouTube.</p>
           <p class="meta"><span class="latin">VOCAL RANGE</span>&nbsp;&nbsp;F3 – A6</p>
         </div>
         <div class="skill plate reveal">
           <span class="fleuron">✦</span>
-          <span class="en">Voice</span>
-          <h3>声</h3>
-          <p class="body">透明感のある声質。歌唱のほか、セリフ・ナレーションにも対応します。</p>
-          <p class="meta">大人の女性・少女・少年・子供・おばあちゃん・ナレーション</p>
-        </div>
-        <div class="skill plate reveal">
-          <span class="fleuron">✦</span>
-          <span class="en">Score</span>
-          <h3>譜面・採譜</h3>
-          <p class="body">伴奏制作の経験があり、耳コピからの採譜・譜面の書き起こしができます。ハモリの譜面化など、音源とあわせた納品も可能です。</p>
+          <span class="en">DTM / Mix</span>
+          <h3><span class="l-ja">DTM・MIX</span><span class="l-en">DTM &amp; Mixing</span></h3>
+          <p class="body l-ja">伴奏制作の経験があり、耳コピからの採譜・譜面の書き起こしができます。YouTubeの音源は自分でMIX・マスタリングしています。</p>
+          <p class="body l-en">I have experience producing instrumental arrangements and can transcribe music by ear into notation or scores. All audio on my YouTube channel is mixed and mastered by me.</p>
         </div>
         <div class="skill plate reveal">
           <span class="fleuron">✦</span>
           <span class="en">Language</span>
-          <h3>言語</h3>
-          <p class="body">元言語学者(東京大学・ドイツの大学で古代言語を研究)。英語・ドイツ語楽曲の歌唱・朗読、架空言語の歌唱、架空言語歌詞の作成・監修に対応します。</p>
+          <h3><span class="l-ja">言語</span><span class="l-en">Languages</span></h3>
+          <p class="body l-ja">元言語学者で、東京大学やドイツの大学で古代言語を研究していたことがあります。英語・ドイツ語などの楽曲の歌唱・朗読、架空言語の歌唱、架空言語歌詞の作成・監修に対応できます。</p>
+          <p class="body l-en">As a former linguist, I studied ancient languages at the University of Tokyo and at a university in Germany. I can sing and narrate in English, German, and other languages, perform in constructed languages, and write or supervise constructed-language lyrics.</p>
         </div>
       </div>
     </div>
@@ -129,7 +139,7 @@
       <div class="chapter reveal">
         <p class="num">CHAPTER III</p>
         <div class="rule"><span>❖</span></div>
-        <h2>作品</h2>
+        <h2><span class="l-ja">作品</span><span class="l-en">Works</span></h2>
         <span class="en">Works</span>
       </div>
 
@@ -151,7 +161,7 @@
       </div>
 
       <div class="pickup-head reveal">
-        <p class="en">PICKUP</p>
+        <p class="en"><span class="l-ja">PICKUP</span><span class="l-en">FEATURED</span></p>
         <p class="jp">代表作</p>
       </div>
       <div class="videos">
@@ -160,7 +170,7 @@
           <figcaption>
             <p class="kind">Cover</p>
             <p class="name">壊れたマリオネット</p>
-            <p class="role">歌唱・Mix(コーラス・ナレーションあり)</p>
+            <p class="role"><span class="l-ja">歌唱・Mix(コーラス・ナレーションあり)</span><span class="l-en">Vocals &amp; Mix (with chorus &amp; narration)</span></p>
           </figcaption>
         </div>
         <div class="video reveal" data-yt="8K1tqjJLvfo" role="button" tabindex="0" aria-label="辿りつく詩を再生">
@@ -168,7 +178,7 @@
           <figcaption>
             <p class="kind">Cover</p>
             <p class="name">辿りつく詩</p>
-            <p class="role">歌唱・Mix(コーラス・セリフあり)</p>
+            <p class="role"><span class="l-ja">歌唱・Mix(コーラス・セリフあり)</span><span class="l-en">Vocals &amp; Mix (with chorus &amp; dialogue)</span></p>
           </figcaption>
         </div>
         <div class="video reveal" data-yt="2TdSIaRhgA8" role="button" tabindex="0" aria-label="Dawnprayerを再生">
@@ -176,7 +186,7 @@
           <figcaption>
             <p class="kind">Original Album</p>
             <p class="name">Dawnprayer</p>
-            <p class="role">ボーカル・コーラス・声優</p>
+            <p class="role"><span class="l-ja">ボーカル・コーラス・声優</span><span class="l-en">Vocals / Chorus / Voice Acting</span></p>
           </figcaption>
         </div>
       </div>
@@ -193,7 +203,7 @@
           <div class="entry reveal">
             <span class="node">✦</span>
             <p class="year">2025</p>
-            <p class="title">Minimal Sky『Dawnprayer』<small>Original Album</small></p>
+            <p class="title"><span class="l-ja">Minimal Sky『Dawnprayer』</span><span class="l-en">Minimal Sky &ldquo;Dawnprayer&rdquo;</span><small>Original Album</small></p>
             <p class="roles">Vocal・Chorus・Voice</p>
           </div>
 
@@ -201,21 +211,21 @@
           <div class="entry reveal">
             <span class="node">✦</span>
             <p class="year">2025</p>
-            <p class="title">○○様 オリジナル楽曲『(タイトル)』<small>サンプル</small></p>
-            <p class="roles">Chorus・採譜</p>
+            <p class="title"><span class="l-ja">○○様 オリジナル楽曲『(タイトル)』</span><span class="l-en">Client song &ldquo;(Title)&rdquo;</span><small><span class="l-ja">サンプル</span><span class="l-en">Sample</span></small></p>
+            <p class="roles"><span class="l-ja">Chorus・採譜</span><span class="l-en">Chorus / Transcription</span></p>
           </div>
 
           <div class="entry reveal">
             <span class="node">✦</span>
             <p class="year">2024</p>
-            <p class="title">ボイスドラマ『(タイトル)』<small>サンプル</small></p>
+            <p class="title"><span class="l-ja">ボイスドラマ『(タイトル)』</span><span class="l-en">Audio drama &ldquo;(Title)&rdquo;</span><small><span class="l-ja">サンプル</span><span class="l-en">Sample</span></small></p>
             <p class="roles">Character Voice</p>
           </div>
 
           <div class="entry reveal">
             <span class="node">✦</span>
             <p class="year">2024</p>
-            <p class="title">『(タイトル)』ナレーション<small>サンプル</small></p>
+            <p class="title"><span class="l-ja">『(タイトル)』ナレーション</span><span class="l-en">Narration for &ldquo;(Title)&rdquo;</span><small><span class="l-ja">サンプル</span><span class="l-en">Sample</span></small></p>
             <p class="roles">Narration</p>
           </div>
           <!-- ▲ サンプルここまで ▲ -->
@@ -231,15 +241,16 @@
       <div class="chapter reveal">
         <p class="num">CHAPTER IV</p>
         <div class="rule"><span>❖</span></div>
-        <h2>収録環境</h2>
+        <h2><span class="l-ja">収録環境</span><span class="l-en">Recording</span></h2>
         <span class="en">Recording</span>
       </div>
       <div class="rec-grid reveal">
         <div class="prose">
-          <p>防音・吸音処理をした自宅ブースで収録しています。ノイズの少ない音声データを納品でき、リモートでのディレクションにも対応しています。</p>
+          <p class="l-ja">防音・吸音処理をした自宅ブースで収録していて、ノイズの少ない音声データを納品することができます。リモートでのディレクションにも対応しています。</p>
+          <p class="l-en">I record in a soundproofed and acoustically treated home booth, delivering clean, low-noise audio files. Remote directed sessions are also available.</p>
         </div>
         <dl class="spec-list">
-          <div><dt>FORMAT</dt><dd>48kHz / 24bit・データ納品</dd></div>
+          <div><dt>FORMAT</dt><dd><span class="l-ja">48kHz / 24bit・データ納品</span><span class="l-en">48kHz / 24bit &middot; digital delivery</span></dd></div>
           <div><dt>MIC</dt><dd>Aston Spirit</dd></div>
           <div><dt>INTERFACE</dt><dd>MOTU M2</dd></div>
           <div><dt>DAW</dt><dd>Logic Pro</dd></div>
@@ -257,16 +268,71 @@
         <details>
           <summary>
             <span class="en">Commission</span>
-            <span class="jp">ご依頼について</span>
+            <span class="jp"><span class="l-ja">ご依頼について</span><span class="l-en">Commissions</span></span>
             <span class="arrow">▶</span>
           </summary>
           <div class="commission-body">
+            <div class="l-ja">
             <p>歌唱・コーラス・声のお仕事をお受けしています。料金は内容により変わりますので、まずはお気軽にご相談ください。</p>
             <dl class="price">
               <div><dt>歌唱(ワンコーラス)</dt><dd>¥5,000〜</dd></div>
-              <div><dt>フル尺歌唱・コーラス制作・セリフ / ナレーション・採譜 など</dt><dd>ご相談ください</dd></div>
+              <div><dt>フル尺歌唱・コーラス・セリフ / ナレーション・採譜 など</dt><dd>ご相談ください</dd></div>
             </dl>
-            <p class="note">※ 用途や納期に応じてお見積もりいたします。<br>※ 納品形式:WAV 48kHz / 24bit(その他の形式もご相談ください)</p>
+
+            <h4 class="sub">ご依頼の流れ</h4>
+            <ol class="flow">
+              <li>ご相談(メールまたはXのDM)</li>
+              <li>お見積もり・納期のご確認</li>
+              <li>お支払い(前払い)</li>
+              <li>収録・仮音源のご確認</li>
+              <li>修正(2回まで無料)</li>
+              <li>納品</li>
+            </ol>
+
+            <h4 class="sub">ご依頼にあたって</h4>
+            <dl class="terms">
+              <div><dt>納期</dt><dd>内容によりますが、主旋律の歌唱がある場合は納品希望日の3週間以上前にご相談いただけると助かります。</dd></div>
+              <div><dt>修正</dt><dd>2回まで無料で対応します。3回目以降は別途ご相談ください。</dd></div>
+              <div><dt>納品形式</dt><dd>WAV 48kHz / 24bit(その他の形式もご相談ください)。ピッチ・リズム補正後の音源のお渡しも可能です。</dd></div>
+              <div><dt>お支払い</dt><dd>銀行振込・PayPalに対応しています。お見積もり確定後の前払いをお願いしています。当方の都合で対応できなくなった場合は全額返金いたします。</dd></div>
+              <div><dt>実績記載</dt><dd>ご依頼いただいた作品は、作品名・担当内容を当サイトの参加作品一覧に記載させていただく場合があります。非公開をご希望の場合はお知らせください。</dd></div>
+              <div><dt>お受けできない内容</dt><dd>R-18作品、宗教・政治に関わる内容はお受けしておりません。</dd></div>
+            </dl>
+
+            <p class="closing">正式なご依頼に至らなくても、お力になれることがあれば嬉しく思います。まずは下の<a href="#contact">ご連絡</a>から、お気軽にご相談ください。</p>
+          </div>
+
+            <div class="l-en">
+            <p>I accept commissions for vocals, chorus work, and voice acting. Rates vary depending on the project &mdash; please feel free to reach out for details.</p>
+            <dl class="price">
+              <div><dt>Vocals (one chorus)</dt><dd>from &yen;5,000</dd></div>
+              <div><dt>Full-length vocals / chorus / dialogue &amp; narration / transcription</dt><dd>Please inquire</dd></div>
+            </dl>
+            <p class="note">Prices are set in JPY; US-dollar amounts are approximate (&yen;5,000 &asymp; US$30).</p>
+
+            <h4 class="sub">How It Works</h4>
+            <ol class="flow">
+              <li>Initial inquiry (email or DM on X)</li>
+              <li>Quote and schedule confirmation</li>
+              <li>Payment (in advance)</li>
+              <li>Recording and preview delivery</li>
+              <li>Revisions (up to 2 rounds free)</li>
+              <li>Final delivery</li>
+            </ol>
+
+            <h4 class="sub">Terms</h4>
+            <dl class="terms">
+              <div><dt>Turnaround</dt><dd>Depends on the project. For lead vocal work, please contact me at least 3 weeks before your desired delivery date.</dd></div>
+              <div><dt>Revisions</dt><dd>Up to 2 rounds of revisions are included. Additional revisions can be arranged separately.</dd></div>
+              <div><dt>Delivery format</dt><dd>WAV 48kHz / 24-bit (other formats available on request). Pitch- and timing-corrected audio can also be provided.</dd></div>
+              <div><dt>Payment</dt><dd>Bank transfer (Japan) or PayPal. Payment is due in advance, after the quote is confirmed. If I become unable to complete the work, you will receive a full refund.</dd></div>
+              <div><dt>Credits</dt><dd>Commissioned works may be listed by title and role on this site&rsquo;s works list. If you&rsquo;d prefer your project not to be listed, please let me know.</dd></div>
+              <div><dt>Not accepted</dt><dd>R-18 content and religious or political material.</dd></div>
+              <div><dt>Time zone</dt><dd>I&rsquo;m based in Japan (JST, UTC+9). Replies may take up to a few days.</dd></div>
+            </dl>
+
+            <p class="closing">Even if it doesn&rsquo;t lead to a formal commission, I&rsquo;d be happy to help however I can &mdash; feel free to reach out via the <a href="#contact">Contact</a> section below.</p>
+            </div>
           </div>
         </details>
       </div>
@@ -279,12 +345,54 @@
       <div class="chapter reveal">
         <p class="num">EPILOGUE</p>
         <div class="rule"><span>❖</span></div>
-        <h2>ご連絡</h2>
+        <h2><span class="l-ja">ご連絡</span><span class="l-en">Contact</span></h2>
         <span class="en">Contact</span>
       </div>
       <div class="contact-body reveal">
-        <p class="status"><span class="dot"></span>ご依頼受付中</p>
-        <p class="prose">ご依頼・お見積もり・ご相談は、メールまたはXのDMからお気軽にどうぞ。</p>
+        <p class="status"><span class="dot"></span><span class="l-ja">ご依頼受付中</span><span class="l-en">Commissions&nbsp;Open</span></p>
+        <p class="prose l-ja">ご依頼・お見積もり・ご相談は、メールまたはXのDMからお気軽にどうぞ。</p>
+        <p class="prose l-en">For commissions, quotes, or any questions, please contact me via email or DM on X.</p>
+
+        <div class="plate reveal inquiry">
+          <span class="fleuron">✦</span>
+          <details>
+            <summary>
+              <span class="en">Template</span>
+              <span class="jp"><span class="l-ja">お問い合わせテンプレート</span><span class="l-en">Inquiry Template</span></span>
+              <span class="arrow">▶</span>
+            </summary>
+            <div class="inquiry-body">
+              <p class="hint l-ja">下記をコピーして、メールまたはDMに貼り付けてご利用ください。決まっていない項目は空欄のままで大丈夫です。</p>
+              <p class="hint l-en">Copy the template below into your email or DM. It&rsquo;s fine to leave fields blank.</p>
+<pre class="tpl l-ja" id="tpl-ja">【ご依頼・お問い合わせテンプレート】
+・お名前(名義):
+・ご連絡先(メールアドレス等):
+・Website / SNS(参考URL):
+・ご依頼内容(ご利用目的・内容):
+・音源データ(楽曲・REC用データ):
+・納品形式:
+・ご予算:
+・納期:
+・クレジット記載(可・不可):
+・その他ご要望:</pre>
+<pre class="tpl l-en" id="tpl-en">[ ORDER / INQUIRY FORM ]
+- Client Name:
+- Contact (email, etc.):
+- Website / SNS (reference URLs):
+- Project Details (purpose &amp; content):
+- Audio Data (song / recording materials):
+- Delivery Format:
+- Budget:
+- Deadline:
+- Credit (OK to list, or not):
+- Notes (anything else):</pre>
+              <button class="copy-btn" id="copy-tpl" type="button">
+                <span class="lbl"><span class="l-ja">テンプレートをコピー</span><span class="l-en">Copy template</span></span>
+                <span class="lbl-done"><span class="l-ja">コピーしました ✦</span><span class="l-en">Copied ✦</span></span>
+              </button>
+            </div>
+          </details>
+        </div>
         <a class="mail" href="mailto:souraiherbstwind@gmail.com">souraiherbstwind@gmail.com</a>
         <div class="sns">
           <a href="https://youtube.com/@sourai29614" target="_blank" rel="noopener">
