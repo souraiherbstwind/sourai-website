@@ -98,13 +98,22 @@
       top:-100px;
       padding-top:calc(100px + 1.1rem + env(safe-area-inset-top,0px));
     }
+    /* ナビ上端はsticky黒帯(完全不透明)と接するため、上端を不透明にして
+       下に向かって従来の80%へなだらかに繋ぎ、色の段差を消す
+       (要素上端は-100pxなので、100px=画面上端) */
+    .nav.scrolled{
+      background:linear-gradient(180deg,
+        #04060f 0,
+        #04060f 100px,
+        rgba(4,6,15,.8) 175px);
+    }
     /* メニューは下端だけマスクでぼわっと消し、Safari下部バー裏の生ページと
        境目なくつなぐ。バーの伸縮でビューポート高が変わってもズレないよう、
        %ではなく下端からの固定pxで指定(下120pxは画面外/バー裏) */
     .mobile-menu{
       inset:-120px 0;
-      -webkit-mask-image:linear-gradient(0deg,transparent 0,transparent 128px,#000 240px);
-      mask-image:linear-gradient(0deg,transparent 0,transparent 128px,#000 240px);
+      -webkit-mask-image:linear-gradient(0deg,transparent 0,transparent 110px,#000 190px);
+      mask-image:linear-gradient(0deg,transparent 0,transparent 110px,#000 190px);
     }
   }
   /* iOS Safariはステータスバー裏に「スクロールする本文レイヤー」しか描画しない
