@@ -211,6 +211,8 @@
     function setMenu(open){
       menuBtn.classList.toggle('open', open);
       mobileMenu.classList.toggle('open', open);
+      /* メニュー展開中はナビの背景を消してオーバーレイ1枚に統一する(CSS側で参照) */
+      document.documentElement.classList.toggle('menu-open', open);
       menuBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
       mobileMenu.setAttribute('aria-hidden', open ? 'false' : 'true');
     }

@@ -108,12 +108,14 @@
         rgba(4,6,15,.8) 175px);
     }
     /* メニューは下端だけマスクでぼわっと消し、Safari下部バー裏の生ページと
-       境目なくつなぐ。バーの伸縮でビューポート高が変わってもズレないよう、
-       %ではなく下端からの固定pxで指定(下120pxは画面外/バー裏) */
+       境目なくつなぐ。iOSはfixed要素の高さを「バー展開時の小さい画面」基準に
+       するためpx指定はズレる。要素に対する%で指定する(CONTACT下端は実測72〜77%) */
     .mobile-menu{
       inset:-120px 0;
-      -webkit-mask-image:linear-gradient(0deg,transparent 0,transparent 110px,#000 190px);
-      mask-image:linear-gradient(0deg,transparent 0,transparent 110px,#000 190px);
+      /* 上120px(画面外〜ステータスバー裏)はsticky黒帯と同じ不透明にして繋ぐ */
+      background:linear-gradient(180deg,#04060f 0,#04060f 118px,rgba(4,6,15,.72) 210px);
+      -webkit-mask-image:linear-gradient(180deg,#000 0%,#000 80%,transparent 90%);
+      mask-image:linear-gradient(180deg,#000 0%,#000 80%,transparent 90%);
     }
   }
   /* iOS Safariはステータスバー裏に「スクロールする本文レイヤー」しか描画しない
@@ -132,6 +134,13 @@
     -webkit-backdrop-filter:blur(10px);
     border-bottom-color:var(--gold-faint);
   }
+  /* メニュー展開中: ナビ自身の背景・罫線を消し、背後のオーバーレイ1枚に
+     統一する(半透明の二重掛けによる色の段差をなくす)。文字はそのまま上に乗る */
+  html.menu-open .nav{
+    background:none;border-bottom-color:transparent;
+    backdrop-filter:none;-webkit-backdrop-filter:none;
+  }
+  html.menu-open .nav::before{opacity:0}
   .nav .brand{font-family:var(--latin);font-size:1rem;font-weight:400;letter-spacing:.42em;color:var(--gold)}
   .nav ul{display:flex;gap:1.7rem;list-style:none;margin-left:auto}
   .nav ul a{font-family:var(--latin);font-size:.8rem;letter-spacing:.26em;color:var(--sub)}
