@@ -21,7 +21,8 @@ Claude.ai上で約30イテレーションかけてデザイン確定済み。**�
 - **GitHub Pages + 独自ドメイン(sourai.net)で公開中。** リポジトリ: `souraiherbstwind/sourai-website`
 - **`main` にマージ/pushすると自動デプロイされる。** 作業は必ずブランチを切って行い、公開してよい状態になってから main に入れる
 - **リポジトリ直下の `CNAME` は独自ドメインの紐付けファイル。絶対に消さない**(消えるとサイトが落ちる)
-- 同じく `robots.txt` / `sitemap.xml` / `favicon.svg` / `favicon-32x32.png` / `apple-touch-icon.png` はサイト一式に含まれないSEO・周辺資産。ファイル一括置き換えの際も必ず残すこと
+- 同じく `robots.txt` / `sitemap.xml` / `favicon-32x32.png` / `apple-touch-icon.png` はサイト一式に含まれないSEO・周辺資産。ファイル一括置き換えの際も必ず残すこと
+- index.htmlの `<meta name="google-site-verification">` はSearch Consoleの所有権確認タグ(2026-07-18登録)。**消すと所有権が失われる**
 - 旧サイトはgit履歴に残っている(`main` の 2025-12 時点のコミット)。旧文面が必要なら `git show b25b7de:index.html` で参照できる
 - `feature/voice-samples` ブランチ(音声サンプル再生機能)は**著作権上の理由で破棄が決定済み**。マージしない
 
