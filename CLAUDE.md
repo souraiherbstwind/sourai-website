@@ -85,8 +85,8 @@ assets/video/glitter.mp4    … キラキラ素材(ユーザーのglitter04.mov 
 
 ## 残タスク
 
-- [ ] `assets/images/ogp.jpg`(1200×630)を作成し、`og:image` / `twitter:image` を差し替え(現在は暫定で avatar.png を指定済み。壊れてはいない)
-- [ ] (任意)favicon刷新: 現行の favicon.svg は旧デザインの青地「S」。新デザインに合わせるなら✦か金のSOURAIモノグラム
+- [x] `assets/images/ogp.jpg`(1200×630) … 作成・og:image/twitter:image設定済み(サイト実アセットからheadless Chromeでレンダリング)
+- [x] favicon刷新 … 夜空×金の✦に一新(favicon.svg / favicon-32x32.png / apple-touch-icon.png)
 - [x] `<link rel="canonical">` … 追加済み
 - [x] JSON-LD構造化データ(`Person`) … 旧サイトから移植済み(sameAs: YouTube/X)
 - [x] meta description … 旧サイトの検索キーワード(VTuber・声優・物語音楽・多重コーラス・架空言語・ボイスドラマ)を統合済み
