@@ -27,9 +27,19 @@
       tryPlay();
       addEventListener('pointerdown', tryPlay, {once:true});
       addEventListener('touchstart', tryPlay, {once:true});
+      /* iOSはタブ切替や画面ロックで動画を自動停止するが、復帰時に再開はしてくれない。
+         放置するとエフェクトが最後のフレームで固まる */
+      document.addEventListener('visibilitychange', function(){
+        if(!document.hidden && glitter.paused) tryPlay();
+      });
+      addEventListener('pageshow', function(){ if(glitter.paused) tryPlay(); });
 
-      var drawFrame = function(){
-        if(glitter.readyState >= 2 && !glitter.paused && glitter.videoWidth){
+      /* 転写は30fpsに制限する。動画は0.6倍速再生で実質15〜18fpsしか新フレームが
+         ないため見た目は変わらず、全画面転写の負荷(発熱)が半分になる */
+      var lastDraw = 0;
+      var drawFrame = function(t){
+        if(t - lastDraw >= 31 && glitter.readyState >= 2 && !glitter.paused && glitter.videoWidth){
+          lastDraw = t;
           var vw = glitter.videoWidth, vh = glitter.videoHeight;
           var cw = gCanvas.width, ch = gCanvas.height;
           var scale = Math.max(cw/vw, ch/vh);
