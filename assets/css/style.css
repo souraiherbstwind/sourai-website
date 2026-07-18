@@ -98,24 +98,16 @@
       top:-100px;
       padding-top:calc(100px + 1.1rem + env(safe-area-inset-top,0px));
     }
-    /* ナビ上端はsticky黒帯(完全不透明)と接するため、上端を不透明にして
-       下に向かって従来の80%へなだらかに繋ぎ、色の段差を消す
-       (要素上端は-100pxなので、100px=画面上端) */
-    .nav.scrolled{
-      background:linear-gradient(180deg,
-        #04060f 0,
-        #04060f 100px,
-        rgba(4,6,15,.8) 175px);
-    }
     /* メニューは下端だけマスクでぼわっと消し、Safari下部バー裏の生ページと
-       境目なくつなぐ。iOSはfixed要素の高さを「バー展開時の小さい画面」基準に
-       するためpx指定はズレる。要素に対する%で指定する(CONTACT下端は実測72〜77%) */
+       境目なくつなぐ。iOSのfixed要素は「バー展開時の小さい画面」基準の固定サイズ
+       なので、下方向へ大きめに延長した上で、中央揃えのメニュー内容に追従する
+       「50%+px」でフェード位置を指定する(CONTACT下端=中央+240px実測) */
     .mobile-menu{
-      inset:-120px 0;
+      inset:-120px 0 -220px;
       /* 上120px(画面外〜ステータスバー裏)はsticky黒帯と同じ不透明にして繋ぐ */
       background:linear-gradient(180deg,#04060f 0,#04060f 118px,rgba(4,6,15,.72) 210px);
-      -webkit-mask-image:linear-gradient(180deg,#000 0%,#000 80%,transparent 90%);
-      mask-image:linear-gradient(180deg,#000 0%,#000 80%,transparent 90%);
+      -webkit-mask-image:linear-gradient(180deg,#000 0,#000 calc(50% + 278px),transparent calc(50% + 378px));
+      mask-image:linear-gradient(180deg,#000 0,#000 calc(50% + 278px),transparent calc(50% + 378px));
     }
   }
   /* iOS Safariはステータスバー裏に「スクロールする本文レイヤー」しか描画しない
