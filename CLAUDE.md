@@ -100,6 +100,11 @@ assets/video/glitter.mp4    … キラキラ素材(ユーザーのglitter04.mov 
 2. Search Consoleで「URL検査」→「インデックス登録をリクエスト」。sitemap.xml を再送信
 3. X上で自分のURLをカード検証(OGP画像が出るか)、スマホ実機でLCP体感(avatar.pngが最大要素。重いと感じたら幅1090→800程度に再圧縮の余地あり)
 
+## キャッシュバスティング(重要)
+
+- GitHub Pagesのキャッシュは10分(max-age=600)。スマホSafariは特にCSSキャッシュが残りやすい
+- **style.css / main.js を変更したら、index.html の `?v=YYYYMMDD◯` を必ず上げること**(例: `?v=20260718a` → `?v=20260719a`)。上げ忘れると訪問者に最大10分古いCSSが配信される
+
 ## 開発メモ
 
 - ローカル確認: `python3 -m http.server 8000`(必須。file://では動画・YouTube・fetch系が動かない)
