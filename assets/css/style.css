@@ -155,8 +155,13 @@
   }
   .mobile-menu{
     position:fixed;inset:0;z-index:9;
-    /* 薄め+強ブラー: 背後の星空やアバターの光がぼんやり透ける濃度 */
-    background:rgba(4,6,15,.72);
+    /* 薄め+強ブラー: 背後の星空やアバターの光がぼんやり透ける濃度。
+       最後のメニュー項目より下はフェードアウトし、iOS Safariの下部バー裏に
+       見える生のページとの境目を演出としてつなぐ(下110pxは画面外/バー裏) */
+    background:linear-gradient(180deg,
+      rgba(4,6,15,.72) 0%,
+      rgba(4,6,15,.72) calc(100% - 300px),
+      rgba(4,6,15,0) calc(100% - 110px));
     backdrop-filter:blur(20px);
     -webkit-backdrop-filter:blur(20px);
     display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2.4rem;
