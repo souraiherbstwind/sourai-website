@@ -98,26 +98,13 @@
       top:-100px;
       padding-top:calc(100px + 1.1rem + env(safe-area-inset-top,0px));
     }
-    /* メニューは下端だけマスクでぼわっと消し、Safari下部バー裏の生ページと
-       境目なくつなぐ。iOSのfixed要素は「バー展開時の小さい画面」基準の固定サイズ
-       なので、下方向へ大きめに延長した上で、中央揃えのメニュー内容に追従する
-       「50%+px」でフェード位置を指定する(CONTACT下端=中央+240px実測) */
+    /* メニューを上下に大きく延長し、Safariのバー(伸縮する)の裏まで含めて
+       全画面を均一に覆う。iOSのfixed要素は「バー展開時の小さい画面」基準の
+       固定サイズのため、下は-220px延長でバー格納時(+約180pt)もカバーできる */
     .mobile-menu{
       inset:-120px 0 -220px;
       /* 上120px(画面外〜ステータスバー裏)はsticky黒帯と同じ不透明にして繋ぐ */
       background:linear-gradient(180deg,#04060f 0,#04060f 118px,rgba(4,6,15,.72) 210px);
-      -webkit-mask-image:linear-gradient(180deg,
-        #000 0,
-        #000 calc(50% + 278px),
-        rgba(0,0,0,.55) calc(50% + 350px),
-        rgba(0,0,0,.22) calc(50% + 420px),
-        transparent calc(50% + 490px));
-      mask-image:linear-gradient(180deg,
-        #000 0,
-        #000 calc(50% + 278px),
-        rgba(0,0,0,.55) calc(50% + 350px),
-        rgba(0,0,0,.22) calc(50% + 420px),
-        transparent calc(50% + 490px));
     }
   }
   /* iOS Safariはステータスバー裏に「スクロールする本文レイヤー」しか描画しない
