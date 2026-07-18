@@ -106,8 +106,18 @@
       inset:-120px 0 -220px;
       /* 上120px(画面外〜ステータスバー裏)はsticky黒帯と同じ不透明にして繋ぐ */
       background:linear-gradient(180deg,#04060f 0,#04060f 118px,rgba(4,6,15,.72) 210px);
-      -webkit-mask-image:linear-gradient(180deg,#000 0,#000 calc(50% + 278px),transparent calc(50% + 378px));
-      mask-image:linear-gradient(180deg,#000 0,#000 calc(50% + 278px),transparent calc(50% + 378px));
+      -webkit-mask-image:linear-gradient(180deg,
+        #000 0,
+        #000 calc(50% + 278px),
+        rgba(0,0,0,.55) calc(50% + 350px),
+        rgba(0,0,0,.22) calc(50% + 420px),
+        transparent calc(50% + 490px));
+      mask-image:linear-gradient(180deg,
+        #000 0,
+        #000 calc(50% + 278px),
+        rgba(0,0,0,.55) calc(50% + 350px),
+        rgba(0,0,0,.22) calc(50% + 420px),
+        transparent calc(50% + 490px));
     }
   }
   /* iOS Safariはステータスバー裏に「スクロールする本文レイヤー」しか描画しない
