@@ -100,6 +100,13 @@ assets/video/glitter.mp4    … キラキラ素材(ユーザーのglitter04.mov 
 2. Search Consoleで「URL検査」→「インデックス登録をリクエスト」。sitemap.xml を再送信
 3. X上で自分のURLをカード検証(OGP画像が出るか)、スマホ実機でLCP体感(avatar.pngが最大要素。重いと感じたら幅1090→800程度に再圧縮の余地あり)
 
+## iOS Safari対応(調査済み・再調査不要)
+
+- iOS Safariはステータスバー/下部バーの裏側にもページを描画する(env(safe-area-inset)の対象外)
+- **効いた対策**: `@supports(-webkit-touch-callout:none)`でナビの箱自体を`top:-100px`+padding補正で上に拡張(style.css「nav」参照)。固定要素の**疑似要素**の画面外部分は描画されないため、::afterで帯を足す方式は効かない(検証済み)
+- **下部バー裏の透け(メニュー展開時にアバターが薄く見える等)はSafari自身の半透明バーの演出で、ページ側からは制御不可**。全サイトで起きるOS仕様として受容済み(2026-07-18)
+- viewport-fit=cover + env() は通常ブラウズの縦持ちでは効かない(ホーム画面追加時・横持ちで効く)。付けてあるのはそのため
+
 ## キャッシュバスティング(重要)
 
 - GitHub Pagesのキャッシュは10分(max-age=600)。スマホSafariは特にCSSキャッシュが残りやすい
