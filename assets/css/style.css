@@ -273,8 +273,13 @@
   /* 輪郭に沿ったやわらかい発光。
      内側と外側の二層が互いに割り切れない周期で明滅し、ぽわぽわと灯りが息づく */
   .hero-figure img.glow{
-    position:absolute;inset:0;z-index:0;
-    height:100%;width:100%;max-width:none;
+    position:absolute;z-index:0;
+    /* ブラーのにじみがレイヤーの四角い境界で切られ、iOSで読み込み時に
+       縦線・角の光として一瞬見えるのを防ぐ: 透明のpadding余白を持たせて
+       にじみを要素内で減衰させる(描画位置・サイズは従来と同一) */
+    inset:-60px;
+    height:calc(100% + 120px);width:calc(100% + 120px);max-width:none;
+    padding:60px;
     object-fit:contain;object-position:bottom center;
     -webkit-mask-image:none;mask-image:none;
     mix-blend-mode:screen;
