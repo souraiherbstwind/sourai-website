@@ -66,7 +66,7 @@ assets/video/glitter.mp4    … キラキラ素材(ユーザーのglitter04.mov 
 - PICKUPは英語表示ではFEATUREDになる(`.l-ja`/`.l-en`ペア)
 - 選択はlocalStorage `sourai-lang` に保存。`<head>`先頭の1行スクリプトが再訪時のちらつきを防ぐ(消さないこと)
 - Time zoneの規約行は英語版のみ(意図的)
-- 英語ヒーローのキャッチ "A vocalist who sings stories" は仮訳。ユーザー確認待ち
+- 英語ヒーローのキャッチは "A singer of stories" でユーザー確定済み(2026-07-18)
 
 ## お問い合わせテンプレート(Contact内)
 
@@ -85,7 +85,6 @@ assets/video/glitter.mp4    … キラキラ素材(ユーザーのglitter04.mov 
 
 ## 残タスク
 
-- [ ] 英語ヒーローキャッチ "A vocalist who sings stories" の確認・差し替え
 - [ ] `assets/images/ogp.jpg`(1200×630)を作成し、`og:image` / `twitter:image` を差し替え(現在は暫定で avatar.png を指定済み。壊れてはいない)
 - [ ] (任意)favicon刷新: 現行の favicon.svg は旧デザインの青地「S」。新デザインに合わせるなら✦か金のSOURAIモノグラム
 - [x] `<link rel="canonical">` … 追加済み
