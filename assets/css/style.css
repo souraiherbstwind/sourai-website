@@ -95,16 +95,24 @@
       top:-100px;
       padding-top:calc(100px + 1.1rem + env(safe-area-inset-top,0px));
     }
+    /* 画面外〜ステータスバー裏の延長部分(上100px+α)はほぼ不透明にして
+       明るいコンテンツの透けを塞ぎ、バー本体は従来の80%の質感を保つ */
+    .nav.scrolled{
+      background:linear-gradient(180deg,
+        rgba(4,6,15,.97) 0,
+        rgba(4,6,15,.97) 100px,
+        rgba(4,6,15,.8) 155px);
+    }
     /* メニューは下端だけマスクでぼわっと消し、Safari下部バー裏の生ページと
        境目なくつなぐ(アバター裾のフェードと同じ手法)。文字域の濃度は変えない */
     .mobile-menu{
       inset:-120px 0;
-      -webkit-mask-image:linear-gradient(180deg,#000 0%,#000 76%,transparent 89%);
-      mask-image:linear-gradient(180deg,#000 0%,#000 76%,transparent 89%);
+      -webkit-mask-image:linear-gradient(180deg,#000 0%,#000 78%,transparent 86%);
+      mask-image:linear-gradient(180deg,#000 0%,#000 78%,transparent 86%);
     }
   }
   .nav.scrolled{
-    background:rgba(4,6,15,.92);
+    background:rgba(4,6,15,.8);
     backdrop-filter:blur(10px);
     -webkit-backdrop-filter:blur(10px);
     border-bottom-color:var(--gold-faint);
