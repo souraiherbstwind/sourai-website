@@ -582,9 +582,11 @@
     border-bottom:1px solid rgba(201,179,126,.12);
   }
   .flow li:first-child{border-top:1px solid rgba(201,179,126,.12)}
+  /* 番号は絶対配置にしない:本文と同じ行内に置くとベースラインが自動で揃う。
+     負のmarginでpadding-left分に食い込ませてぶら下げインデントにしている */
   .flow li::before{
     content:counter(step,decimal-leading-zero);
-    position:absolute;left:.3em;top:.85em;
+    display:inline-block;width:3.5em;margin-left:-3.5em;
     font-family:var(--latin);font-size:.8em;letter-spacing:.12em;
     color:var(--gold);
   }

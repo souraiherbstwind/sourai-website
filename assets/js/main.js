@@ -222,6 +222,16 @@
     });
   }
 
+  /* ---- 折りたたみ見出しのフォーカス枠 ----
+     Safariはマウスクリックでもsummaryにフォーカス枠を出し続けるため、
+     ポインタ操作のときだけフォーカスを外す。キーボード操作(Enter/Space)では
+     pointerupが発火しないので、:focus-visibleの枠はそのまま残る */
+  document.querySelectorAll('summary').forEach(function(s){
+    s.addEventListener('pointerup', function(){
+      requestAnimationFrame(function(){ s.blur(); });
+    });
+  });
+
   /* ---- 実績の星をつなぐ星座線 ---- */
   function drawConstellation(){
     var tl = document.getElementById('timeline');
