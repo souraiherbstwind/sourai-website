@@ -87,6 +87,14 @@
     transition:opacity .4s;
   }
   .nav.scrolled::before{opacity:0}
+  /* iOS Safariはステータスバーの裏側にもページを描画するため(env対象外の領域)、
+     ナビ上端からさらに上へ黒帯を伸ばして、スクロール中のコンテンツ貫通を塞ぐ。
+     他環境では画面外に描画されるだけで無害 */
+  .nav::after{
+    content:"";position:absolute;left:0;right:0;bottom:100%;height:100px;
+    background:rgba(4,6,15,.92);
+    pointer-events:none;
+  }
   .nav.scrolled{
     background:rgba(4,6,15,.8);
     backdrop-filter:blur(10px);
