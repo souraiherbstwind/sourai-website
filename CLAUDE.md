@@ -32,7 +32,7 @@ index.html            … 全マークアップ。文面編集はここ
 CNAME                 … 独自ドメイン設定(触らない)
 robots.txt            … クロール許可+sitemap参照
 sitemap.xml           … URL1件のみ(ワンページサイトのため)
-favicon.svg / favicon-32x32.png / apple-touch-icon.png … 旧サイトから継続使用
+favicon-32x32.png / apple-touch-icon.png … 二重金枠×金のS(Cinzel)。フォント依存のためSVG版は廃止(PNGのみ)
 assets/css/style.css  … 全スタイル(約900行、セクションコメントあり)
 assets/js/main.js     … 全スクリプト(vanilla JS、依存なし)
 assets/images/bg-stars.jpg  … 背景星空(ユーザー提供写真)
@@ -86,7 +86,7 @@ assets/video/glitter.mp4    … キラキラ素材(ユーザーのglitter04.mov 
 ## 残タスク
 
 - [x] `assets/images/ogp.jpg`(1200×630) … 作成・og:image/twitter:image設定済み(サイト実アセットからheadless Chromeでレンダリング)
-- [x] favicon刷新 … 夜空×金の✦に一新(favicon.svg / favicon-32x32.png / apple-touch-icon.png)
+- [x] favicon刷新 … 二重金枠×金のS(蔵書票モチーフ)で確定。Cinzelフォント依存のためSVG favicon廃止・PNGのみ
 - [x] `<link rel="canonical">` … 追加済み
 - [x] JSON-LD構造化データ(`Person`) … 旧サイトから移植済み(sameAs: YouTube/X)
 - [x] meta description … 旧サイトの検索キーワード(VTuber・声優・物語音楽・多重コーラス・架空言語・ボイスドラマ)を統合済み
