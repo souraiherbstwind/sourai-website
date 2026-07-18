@@ -38,6 +38,7 @@ assets/css/style.css  … 全スタイル(約900行、セクションコメン�
 assets/js/main.js     … 全スクリプト(vanilla JS、依存なし)
 assets/images/bg-stars.jpg  … 背景星空(ユーザー提供写真)
 assets/images/avatar.png    … アバター透過済(黒背景JPGから輝度≤22をフラッドフィル+囲まれ領域も除去して切り抜き。衣装の黒は輝度60+なので安全)
+assets/images/avatar.webp   … 上記のWebP版(q95・205KB)。Heroは<picture>でWebP優先+PNGフォールバック。**アバター画像を差し替えるときは両方更新すること**(OGP/JSON-LDはPNGを参照)
 assets/video/glitter.mp4    … キラキラ素材(ユーザーのglitter04.mov ProResを1920/CRF23で圧縮。元素材は本人所有)
 ```
 

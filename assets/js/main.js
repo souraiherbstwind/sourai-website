@@ -198,10 +198,16 @@
     });
   });
 
-  /* ---- 発光レイヤーに本体と同じ画像を流用 ---- */
+  /* ---- 発光レイヤーに本体と同じ画像を流用 ----
+     本体は<picture>(WebP優先)のため、実際に選ばれたcurrentSrcを使う。
+     読み込み前でcurrentSrcが未確定なら、loadを待ってから流用する
+     (srcで先に流用するとPNGとWebPの二重ダウンロードになる) */
   document.querySelectorAll('.hero-figure img.glow').forEach(function(g){
     var main = g.parentElement.querySelector('img:not(.glow)');
-    if(main) g.src = main.src;
+    if(!main) return;
+    function apply(){ g.src = main.currentSrc || main.src; }
+    if(main.complete && main.currentSrc){ apply(); }
+    else{ main.addEventListener('load', apply, {once:true}); }
   });
 
   /* ---- ハンバーガーメニュー ---- */

@@ -252,6 +252,9 @@
     align-self:end;justify-self:center;
     position:relative;
   }
+  /* <picture>(WebP+PNGフォールバック)をレイアウト上透明にし、
+     既存の .hero-figure img 系のCSSをそのまま効かせる */
+  .hero-figure picture{display:contents}
   .hero-figure::before{
     content:"";position:absolute;inset:-14% -32% -10%;
     background:radial-gradient(ellipse 55% 46% at 50% 34%,
