@@ -251,6 +251,9 @@
   .hero-figure{
     align-self:end;justify-self:center;
     position:relative;
+    /* 図版は全て装飾でクリック対象がない。発光の拡張や::beforeの光暈が
+       周囲のリンク(YouTubeで聴く等)のタップを奪わないよう素通しにする */
+    pointer-events:none;
   }
   /* <picture>(WebP+PNGフォールバック)をレイアウト上透明にし、
      既存の .hero-figure img 系のCSSをそのまま効かせる */
@@ -286,6 +289,8 @@
     object-fit:contain;object-position:bottom center;
     -webkit-mask-image:none;mask-image:none;
     mix-blend-mode:screen;
+    /* 装飾レイヤーがリンク等のタップを奪わないように(拡張分がテキストに被る) */
+    pointer-events:none;
   }
   .hero-figure img.glow-inner{
     filter:blur(12px) brightness(1.6) saturate(1.05);
