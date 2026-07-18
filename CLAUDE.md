@@ -53,6 +53,25 @@ assets/video/glitter.mp4    … キラキラ素材(ユーザーのglitter04.mov 
 8. **`html`と`body`両方に `overflow-x:hidden`。** 光塵canvasが図の外まではみ出す設計のため、外すとiOSで横スクロールが発生する。
 9. **`prefers-reduced-motion` 対応が全アニメーションに入っている。** 新しい動きを足すときも必ず対応すること。
 10. モバイルHeroは `grid-template-rows: auto minmax(0,1fr)` +アバター`object-fit:contain / bottom center`で「残り高さを全部使う」設計。固定の高さ指定に戻すと機種によって隙間/はみ出しが出る。
+11. **JSとCSSに同名のセクションコメントがある。** コメントをアンカーに機械置換すると誤った方に入る事故が起きた(コピーJSがCSS内に混入し、ボタンが無反応になった)。置換時はコード実体を含む長いアンカーを使うこと。
+12. ハンバーガーの中線は `opacity:0` に加えて `transform:scaleX(0)` で二重に消している(iOSで残像が出たため)。
+13. ナビは `align-items:center`。baselineに戻すと枠付き要素(ENトグル・ステータス)の高さがバラける。
+
+## 二言語対応(v38以降)
+
+- 仕組み: `<html>`の`en`クラスで切り替え。CSSは `html:not(.en) .l-en{display:none}` / `html.en .l-ja{display:none}` の2行が核
+- **文面編集のルール**: 対訳は`.l-ja`/`.l-en`のペア要素としてHTMLに並記されている。片方だけ直すと日英がズレるので、**文面を変えるときは必ず両方確認**
+- Commissionは本文まるごと `<div class="l-ja">` / `<div class="l-en">` の2ブロック
+- 英語表示では飾りの和文副題を出さない: `html.en`時に `.chapter .en` `.skill > .en` `summary > .en` `.latest-head .jp` 等をdisplay:none(style.css「言語切り替え」セクション)
+- PICKUPは英語表示ではFEATUREDになる(`.l-ja`/`.l-en`ペア)
+- 選択はlocalStorage `sourai-lang` に保存。`<head>`先頭の1行スクリプトが再訪時のちらつきを防ぐ(消さないこと)
+- Time zoneの規約行は英語版のみ(意図的)
+- 英語ヒーローのキャッチ "A vocalist who sings stories" は仮訳。ユーザー確認待ち
+
+## お問い合わせテンプレート(Contact内)
+
+- `<details>`折りたたみ+コピーボタン。テンプレ本文は `<pre id="tpl-ja">` / `<pre id="tpl-en">`(pre内は行頭を揃えて書く)
+- コピー処理は**同期のexecCommandを先に、Clipboard APIを後に**試す順序。逆にすると、非同期拒否の後にユーザー操作の有効期限が切れて両方失敗する(実際に踏んだバグ)
 
 ## よく触る調整値
 
@@ -66,13 +85,14 @@ assets/video/glitter.mp4    … キラキラ素材(ユーザーのglitter04.mov 
 
 ## 残タスク
 
-- [ ] Credits年表のサンプル行(`サンプル`で検索、`▼サンプル`コメント区間)を実データに差し替え
-- [ ] Commissionの料金・注記の文言確認(現状はClaude作の仮文言。¥5,000〜のみユーザー指定)
+- [ ] 英語ヒーローキャッチ "A vocalist who sings stories" の確認・差し替え
 - [ ] `assets/images/ogp.jpg`(1200×630)を作成し、`og:image` / `twitter:image` を差し替え(現在は暫定で avatar.png を指定済み。壊れてはいない)
 - [ ] (任意)favicon刷新: 現行の favicon.svg は旧デザインの青地「S」。新デザインに合わせるなら✦か金のSOURAIモノグラム
 - [x] `<link rel="canonical">` … 追加済み
 - [x] JSON-LD構造化データ(`Person`) … 旧サイトから移植済み(sameAs: YouTube/X)
 - [x] meta description … 旧サイトの検索キーワード(VTuber・声優・物語音楽・多重コーラス・架空言語・ボイスドラマ)を統合済み
+- [x] Credits年表 … 実データ3件反映済み(2026 Skyward Reverie / 2024 Dawnprayer / 2024 暁を待って)
+- [x] Commission文言 … v46(Claude.aiでユーザーと作成)の本文で確定
 
 ## 公開時の手順(デプロイはユーザー確認後)
 
