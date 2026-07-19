@@ -154,6 +154,13 @@
   }
   @keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
   .menu-btn{display:none}
+  /* 英語の "Commissions Open" は和文より長く、狭い画面でハンバーガーを
+     押し出すため、ナビ内だけ "Open" に短縮する(言語トグルのEN/JAと同じ方式) */
+  .status .st-abbr{display:none}
+  @media(max-width:430px){
+    .nav .status .st-full{display:none}
+    .nav .status .st-abbr{display:inline}
+  }
   @media(max-width:480px){
     /* 折りたたみ見出し: 飾りのラテン小見出しを畳み、和文を1行に収める */
     details summary{padding:1.3rem 1.2rem;gap:1rem}
