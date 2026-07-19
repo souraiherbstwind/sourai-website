@@ -132,8 +132,11 @@
   html.menu-open .nav::before{opacity:0}
   .nav .brand{font-family:var(--latin);font-size:1rem;font-weight:400;letter-spacing:.42em;color:var(--gold)}
   .nav ul{display:flex;gap:1.7rem;list-style:none;margin-left:auto}
-  .nav ul a{font-family:var(--latin);font-size:.8rem;letter-spacing:.26em;color:var(--sub)}
-  .nav ul a:hover{color:var(--gold)}
+  /* display:block+line-height:1 でliの16px基準ベースラインへの吸着を断つ。
+     インラインのままだと小さな文字がベースラインにぶら下がり、
+     他のナビ要素(flex中央揃え)より約2.6px低く描かれる */
+  .nav ul a{display:block;line-height:1;font-family:var(--latin);font-size:.8rem;letter-spacing:.26em;color:var(--sub)}
+  @media(hover:hover){.nav ul a:hover{color:var(--gold)}}
   .status{
     display:inline-flex;align-items:center;gap:.65em;
     font-size:.72rem;letter-spacing:.18em;color:var(--ink);white-space:nowrap;
@@ -197,7 +200,7 @@
     font-family:var(--latin);font-size:1.05rem;letter-spacing:.4em;text-indent:.4em;
     color:var(--ink);
   }
-  .mobile-menu a:hover{color:var(--gold)}
+  @media(hover:hover){.mobile-menu a:hover{color:var(--gold)}}
 
   /* ---------- hero ---------- */
   .hero{
@@ -249,7 +252,7 @@
     border-bottom:1px solid var(--gold-dim);
     padding-bottom:.25em;
   }
-  .hero .listen:hover{color:var(--ink);border-color:var(--ink)}
+  @media(hover:hover){.hero .listen:hover{color:var(--ink);border-color:var(--ink)}}
   .hero-figure{
     align-self:end;justify-self:center;
     position:relative;
@@ -418,7 +421,7 @@
   .prose{color:var(--sub);font-size:.95rem}
   .prose p+p{margin-top:1.6em}
   .prose a{color:var(--gold);border-bottom:1px solid var(--gold-faint);padding-bottom:.1em}
-  .prose a:hover{color:var(--ink)}
+  @media(hover:hover){.prose a:hover{color:var(--ink)}}
   .centered{max-width:36em;margin:0 auto;text-align:center}
   .centered p{text-align:left}
 
@@ -498,7 +501,7 @@
     color:var(--gold);
     border-bottom:1px solid var(--gold-dim);padding-bottom:.2em;
   }
-  .latest-more a:hover{color:var(--ink);border-color:var(--ink)}
+  @media(hover:hover){.latest-more a:hover{color:var(--ink);border-color:var(--ink)}}
   .pickup-head{text-align:center;margin-bottom:1.8rem}
   .pickup-head .en{
     font-family:var(--latin);font-size:.68rem;letter-spacing:.45em;text-indent:.45em;color:var(--gold);
@@ -520,7 +523,7 @@
     text-shadow:0 0 16px rgba(0,0,0,.75);
     transition:transform .3s,color .3s;
   }
-  .video:hover .thumb::after{color:#fff;transform:scale(1.15)}
+  @media(hover:hover){.video:hover .thumb::after{color:#fff;transform:scale(1.15)}}
   .video.playing .thumb::after{content:none}
   .video .thumb iframe{
     position:absolute;top:4px;left:4px;z-index:3;
@@ -533,7 +536,7 @@
     filter:brightness(.86) saturate(.9);
     transition:filter .5s;
   }
-  .video:hover .thumb img{filter:brightness(1) saturate(1)}
+  @media(hover:hover){.video:hover .thumb img{filter:brightness(1) saturate(1)}}
   .video figcaption{padding-top:.9rem}
   .video .kind{
     font-family:var(--latin);font-size:.58rem;letter-spacing:.32em;text-indent:.32em;color:var(--gold);
@@ -579,7 +582,7 @@
   .entry .title small{font-size:.74rem;color:var(--faint);margin-left:.7em;letter-spacing:.08em}
   .entry .roles{font-size:.84rem;color:var(--sub);letter-spacing:.12em;margin-top:.3em}
   .entry .title a{border-bottom:1px solid var(--gold-faint);padding-bottom:.08em}
-  .entry .title a:hover{color:var(--gold);border-color:var(--gold-dim)}
+  @media(hover:hover){.entry .title a:hover{color:var(--gold);border-color:var(--gold-dim)}}
 
   /* ---------- recording ---------- */
   .rec-grid{
@@ -693,10 +696,16 @@
     padding:.85em 2.2em;
     transition:background .3s,color .3s,border-color .3s;
   }
-  .copy-btn:hover{background:rgba(201,179,126,.1);color:var(--gold);border-color:var(--gold)}
+  @media(hover:hover){.copy-btn:hover{background:rgba(201,179,126,.1);color:var(--gold);border-color:var(--gold)}}
   .copy-btn .lbl-done{display:none}
   .copy-btn.done .lbl{display:none}
-  .copy-btn.done .lbl-done{display:inline;color:var(--gold)}
+  /* チェックはflexで文字と中央揃え(グリフだと書体によりベースラインが沈む) */
+  .copy-btn.done .lbl-done{display:inline-flex;align-items:center;gap:.55em;color:var(--gold)}
+  .copy-btn .lbl-done .check{
+    width:1.05em;height:1.05em;flex-shrink:0;
+    fill:none;stroke:currentColor;stroke-width:2.2;
+    stroke-linecap:round;stroke-linejoin:round;
+  }
   .contact-body{text-align:center}
   .contact-body .status{justify-content:center;margin-bottom:1.4rem}
   .contact-body .prose{max-width:30em;margin:0 auto}
@@ -706,7 +715,7 @@
     color:var(--gold);
     border-bottom:1px solid var(--gold-dim);padding-bottom:.15em;
   }
-  .mail:hover{color:var(--ink);border-color:var(--ink)}
+  @media(hover:hover){.mail:hover{color:var(--ink);border-color:var(--ink)}}
   .sns{margin-top:2.6rem;display:flex;gap:1.2rem;justify-content:center;flex-wrap:wrap}
   .sns a{
     display:inline-flex;align-items:center;gap:.75em;
@@ -720,7 +729,7 @@
     width:1.15em;height:1.15em;flex-shrink:0;
     fill:currentColor;opacity:.9;
   }
-  .sns a:hover{background:rgba(201,179,126,.1);color:var(--gold);border-color:var(--gold)}
+  @media(hover:hover){.sns a:hover{background:rgba(201,179,126,.1);color:var(--gold);border-color:var(--gold)}}
 
   footer{
     border-top:1px solid var(--gold-faint);
@@ -756,7 +765,7 @@
     width:1.15em;height:1.15em;flex-shrink:0;
     fill:none;stroke:currentColor;stroke-width:1.4;
   }
-  .lang-toggle:hover{color:var(--gold)}
+  @media(hover:hover){.lang-toggle:hover{color:var(--gold)}}
   .lang-toggle .lt-abbr{display:none}
   @media(max-width:1150px){
     .lang-toggle .lt-full{display:none}
