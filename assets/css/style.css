@@ -161,7 +161,9 @@
     .status{font-size:.68rem;padding:.46em .85em;gap:.45em}
     .lang-toggle{font-size:.68rem;padding:.46em .3em}
   }
-  @media(max-width:760px){
+  /* デスクトップ用ナビ(6リンク+ENトグル+ステータス)は実測で約1150px必要。
+     iPad縦横を含む1150px以下はハンバーガーに畳む */
+  @media(max-width:1150px){
     .nav ul{display:none}
     .nav .status{margin-left:auto}
     .menu-btn{
@@ -329,7 +331,10 @@
     z-index:3;pointer-events:none;
     mix-blend-mode:screen;
   }
-  @media(max-width:760px){
+  /* 縦長画面(スマホ+iPad縦。12.9インチiPad Pro縦=1024pxを含む)は
+     テキスト上・アバター下の縦積み構図に。横長のノートPC(〜1024px)は
+     orientation条件により巻き込まれない */
+  @media (max-width:900px), (max-width:1150px) and (orientation:portrait){
     .hero{
       grid-template-columns:1fr;
       grid-template-rows:auto minmax(0,1fr);
@@ -346,6 +351,12 @@
       height:100%;width:100%;max-width:none;
       object-fit:contain;object-position:bottom center;
     }
+  }
+  /* タブレット縦(901〜1150px)では、高さ不確定のグリッドだと図版行が
+     画像の縦横比(幅×1.58)まで伸びて画面からはみ出す。高さを確定させて
+     「残り高さに収める」挙動にする(スマホは従来のまま=地雷10を回避) */
+  @media (min-width:901px) and (max-width:1150px) and (orientation:portrait){
+    .hero{height:100svh}
   }
   .scroll-hint{
     position:absolute;bottom:calc(1.2rem + env(safe-area-inset-bottom,0px));left:50%;transform:translateX(-50%);
@@ -747,7 +758,7 @@
   }
   .lang-toggle:hover{color:var(--gold)}
   .lang-toggle .lt-abbr{display:none}
-  @media(max-width:760px){
+  @media(max-width:1150px){
     .lang-toggle .lt-full{display:none}
     .lang-toggle .lt-abbr{display:inline}
     .lang-toggle{padding:.45em .8em}
