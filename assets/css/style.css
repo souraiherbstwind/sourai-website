@@ -19,8 +19,8 @@
     font-family:var(--mincho);
     color:var(--ink);
     background-color:var(--night);
-    line-height:2.1;
-    letter-spacing:.05em;
+    line-height:2;
+    letter-spacing:.03em;
     /* clipはスクロールコンテナを作らないため.ios-top-coverのstickyが効く。
        非対応ブラウザはhiddenにフォールバック(横スクロール抑止は両方で維持) */
     overflow-x:hidden;
@@ -320,19 +320,19 @@
   }
   @keyframes glowIn{
     from{opacity:0;transform:translateY(26px)}
-    to{opacity:.58;transform:translateY(0)}
+    to{opacity:.48;transform:translateY(0)}
   }
   @keyframes glowInOuter{
     from{opacity:0;transform:translateY(26px)}
-    to{opacity:.42;transform:translateY(0)}
+    to{opacity:.34;transform:translateY(0)}
   }
   @keyframes glowWaveA{
-    0%,100%{opacity:.58}
-    50%{opacity:.82}
+    0%,100%{opacity:.48}
+    50%{opacity:.68}
   }
   @keyframes glowWaveB{
-    0%,100%{opacity:.42}
-    45%{opacity:.68}
+    0%,100%{opacity:.34}
+    45%{opacity:.55}
   }
   /* 金の光塵(こまかな砂粒の光 + 大きく淡いボケ玉) */
   #dust{
@@ -426,6 +426,8 @@
   .reveal.in{opacity:1;transform:none}
 
   .prose{color:var(--sub);font-size:.95rem}
+  /* PCでは本文をわずかに大きく(モバイルは据え置き) */
+  @media(min-width:1151px){.prose{font-size:1rem}}
   .prose p+p{margin-top:1.6em}
   .prose a{color:var(--gold);border-bottom:1px solid var(--gold-faint);padding-bottom:.1em}
   @media(hover:hover){.prose a:hover{color:var(--ink)}}
@@ -474,6 +476,8 @@
     color:var(--gold);margin-bottom:.5rem;
   }
   .skill .body{color:var(--sub);font-size:.88rem;margin-top:1rem}
+  /* PCの.prose拡大(1rem)に比例して上げ、本文との階層差(約0.08rem)を保つ */
+  @media(min-width:1151px){.skill .body{font-size:.92rem}}
   .skill .meta{
     margin-top:.9em;padding-top:.9em;
     border-top:1px solid var(--gold-faint);
@@ -783,7 +787,7 @@
   @media (prefers-reduced-motion: reduce){
     .reveal{opacity:1;transform:none;transition:none}
     .hero-figure img{animation:none}
-    .hero-figure img.glow{animation:none;opacity:.58}
+    .hero-figure img.glow{animation:none;opacity:.48}
     .scroll-hint::after{animation:none}
     .status .dot{animation:none}
     html{scroll-behavior:auto}
