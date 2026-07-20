@@ -428,6 +428,11 @@
   .prose{color:var(--sub);font-size:.95rem}
   /* PCでは本文をわずかに大きく(モバイルは据え置き) */
   @media(min-width:1151px){.prose{font-size:1rem}}
+  /* 行末に1〜2文字だけ落ちる孤立を減らす(非対応ブラウザでは無視される)。
+     line-break:strictで日本語の禁則も厳格に */
+  .prose p,.skill .body,.terms dd{text-wrap:pretty;line-break:strict}
+  /* 固有名詞リンク(Minimal Sky等)の途中改行を防ぐ */
+  .prose a{white-space:nowrap}
   .prose p+p{margin-top:1.6em}
   .prose a{color:var(--gold);border-bottom:1px solid var(--gold-faint);padding-bottom:.1em}
   @media(hover:hover){.prose a:hover{color:var(--ink)}}
