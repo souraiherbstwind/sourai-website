@@ -14,7 +14,10 @@
     --logo:"Cormorant Garamond",serif;
   }
   *{margin:0;padding:0;box-sizing:border-box}
-  html{scroll-behavior:smooth;overflow-x:hidden}
+  /* text-size-adjust: iOS Safariの「テキスト自動拡大」を抑止する。
+     この指定がないと、行間等のレイアウト変更をきっかけにSafariの
+     ヒューリスティックが発動して全文字が勝手に拡大されることがある */
+  html{scroll-behavior:smooth;overflow-x:hidden;-webkit-text-size-adjust:100%;text-size-adjust:100%}
   body{
     font-family:var(--mincho);
     color:var(--ink);
